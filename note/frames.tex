@@ -1,0 +1,310 @@
+% Определение рамок
+\usepackage{fontspec}
+\newcommand{\arial}{\fontspec{Arial}}
+\usepackage{tikz}
+\newcommand{\mainframe}[9]{
+	\itshape
+	\small
+	\arial
+	\begin{tikzpicture}[remember picture, overlay]
+
+		\draw[black, ultra thick]
+
+		([shift={(20mm, 5mm)}] current page.south west)
+		--
+		([shift={(20mm, -5mm)}] current page.north west)
+		--
+		([shift={(-5mm, -5mm)}] current page.north east)
+		--
+		([shift={(-5mm, 5mm)}] current page.south east)
+		-- cycle;
+		\draw[black, ultra thick]
+		([shift={(20mm, 45mm)}] current page.south west)
+		--
+		([shift={(-5mm, 45mm)}] current page.south east)
+		([shift={(20mm, 35mm)}] current page.south west)
+		--
+		++(65mm, 0)
+		([shift={(20mm, 30mm)}] current page.south west)
+		--
+		([shift={(-5mm, 30mm)}] current page.south east)
+		++(0, -5mm)
+		--
+		+(-50mm, 0)
+		++(0, -5mm)
+		--
+		+(-50mm, 0)
+
+		([shift={(20mm, 45mm)}] current page.south west)
+		++(7mm, 0)
+		--
+		+(0mm, -15mm)
+		++(10mm, 0)
+		--
+		+(0, -40mm)
+		++(23mm, 0)
+		--
+		+(0, -40mm)
+		++(15mm, 0)
+		--
+		+(0, -40mm)
+		++(10mm, 0)
+		--
+		+(0, -40mm)
+
+		([shift={(-5mm, 30mm)}] current page.south east)
+		++(-20mm, 0)
+		--
+		+(0, -10mm)
+		++(-15mm, 0)
+		--
+		+(0, -10mm)
+		++(-15mm, 0)
+		--
+		+(0, -25mm);
+
+		\draw[black, thick]
+		([shift={(-5mm, 30mm)}] current page.south east)
+		++(-40mm, -5mm)
+		--
+		+(0, -5mm)
+		++(-5mm, 0)
+		--
+		+(0, -5mm);
+		\draw[black, thick]
+		([shift={(20mm, 5mm)}] current page.south west)
+		++(0, 5mm)
+		--
+		+(65mm, 0)
+		++(0, 5mm)
+		--
+		+(65mm, 0)
+		++(0, 5mm)
+		--
+		+(65mm, 0)
+		++(0, 5mm)
+		--
+		+(65mm, 0)
+		++(0, 15mm)
+		--
+		+(65mm, 0);
+		\draw[anchor=mid]
+		([shift={(20mm, 35mm)}] current page.south west)
+		++(0, -2.7mm)
+		+(3.5mm, 0)
+		node {Изм.}
+
+		+(12mm, 0)
+		node {Лист}
+
+		+(28.5mm, 0)
+		node {№ докум.}
+
+		+(47.5mm, 0)
+		node {Подп.}
+
+		+(60mm, 0)
+		node {Дата}
+
+		+(8.5mm, -5mm)
+		node [
+				text width = 15mm,
+				align = left
+			] {Разраб.}
+
+		+(8.5mm, -10mm)
+		node [
+				text width = 15mm,
+				align = left
+			]{Пров.}
+
+		+(8.5mm, -15mm)
+		node [
+				text width = 15mm,
+				align = left
+			] {Реценз.}
+
+		+(8.5mm, -20mm)
+		node [
+				text width = 15mm,
+				align = left
+			] {Н. контр.}
+
+		+(8.5mm, -25mm)
+		node [
+				text width = 15mm,
+				align = left
+			] {Утв.}
+
+
+
+
+
+		([shift={(-5mm, 30mm)}] current page.south east)
+		++(0, -2.7mm)
+		+(-10mm, 0)
+		node {Листов}
+
+		+(-27.5mm, 0)
+		node {Лист}
+
+		+(-42.5mm, 0)
+		node {Литера}
+
+		++(0, -5mm)
+		+(-10mm, 0)
+		node {#9}
+
+		+(-27.5mm, 0)
+		node {#8}
+		;
+
+
+		\draw[anchor=mid]
+		([shift={(37mm, 30mm)}] current page.south west)
+
+		+(11.5mm, -2.7mm)
+		node [
+				text width = 21mm,
+				align = left
+			] {#4}
+
+		+(11.5mm, -7.7mm)
+		node [
+				text width = 21mm,
+				align = left
+			] {#5}
+
+		+(11.5mm, -17.7mm)
+		node [
+				text width = 21mm,
+				align = left
+			] {#6}
+
+		+(11.5mm, -22.7mm)
+		node [
+				text width = 21mm,
+				align = left
+			] {#7}
+		;
+
+		%\upshape
+		\huge
+		\draw
+		([shift={(-5mm, 30mm)}] current page.south east)
+		+(-60mm, 7.5mm)
+		node {#1}
+		;
+
+		\large
+		\draw
+		([shift={(-5mm, 5mm)}] current page.south east)
+		+(-25mm, 7.5mm)
+		node [
+				anchor = center,
+				text width = 50mm,
+				align = center
+			]{#2}
+		;
+
+		\large
+		\draw
+		([shift={(-55mm, 5mm)}] current page.south east)
+		+(-35mm, 12.5mm)
+		node [
+				anchor = center,
+				text width = 70mm,
+				align = center
+			]{#3}
+		;
+
+	\end{tikzpicture}
+}
+
+
+
+
+\newcommand{\pageframe}[2]{
+	\itshape
+	\small
+	\arial
+	\begin{tikzpicture}[remember picture, overlay]
+
+		\draw[black, ultra thick]
+
+		([shift={(20mm, 5mm)}] current page.south west)
+		--
+		([shift={(20mm, -5mm)}] current page.north west)
+		--
+		([shift={(-5mm, -5mm)}] current page.north east)
+		--
+		([shift={(-5mm, 5mm)}] current page.south east)
+		-- cycle;
+		\draw[black, ultra thick]
+		([shift={(20mm, 20mm)}] current page.south west)
+		--
+		([shift={(-5mm, 20mm)}] current page.south east)
+
+		([shift={(20mm, 10mm)}] current page.south west)
+		--
+		+(65mm, 0)
+
+		([shift={(-5mm, 5mm)}] current page.south east)
+		+(0, 8mm) -- +(-10mm, 8mm)
+		+(-10mm, 0) -- +(-10mm, 15mm)
+
+		([shift={(20mm, 5mm)}] current page.south west)
+		++(7mm, 0) -- +(0, 15mm)
+		++(10mm, 0) -- +(0, 15mm)
+		++(23mm, 0) -- +(0, 15mm)
+		++(15mm, 0) -- +(0, 15mm)
+		++(10mm, 0) -- +(0, 15mm)
+		;
+
+		\draw[black, thick]
+		([shift={(20mm, 15mm)}] current page.south west)
+		-- +(65mm, 0)
+		;
+
+		\draw[anchor=mid]
+		([shift={(20mm, 5mm)}] current page.south west)
+		++(0, 2.3mm)
+		+(3.5mm, 0)
+		node {Изм.}
+
+		++(7mm, 0)
+		+(5mm, 0)
+		node {Лист}
+
+		++(10mm, 0)
+		+(11.5mm, 0)
+		node {№ докум.}
+
+		++(23mm, 0)
+		+(7.5mm, 0)
+		node {Подп.}
+
+		++(15mm, 0)
+		+(5mm, 0)
+		node {Дата}
+
+		([shift={(-5mm, 13mm)}] current page.south east)
+		+(-5mm, 3.3mm)
+		node {Лист}
+		;
+
+		\normalsize
+		\draw
+		([shift={(-10mm, 9mm)}] current page.south east)
+		node {#2}
+		;
+
+		\huge
+		\draw
+		([shift={(85mm, 5mm)}] current page.south west)
+		+(55mm, +7.5mm)
+		node {#1}
+		;
+
+	\end{tikzpicture}
+}
