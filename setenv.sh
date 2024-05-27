@@ -1,0 +1,1 @@
+export VIMTEX_OUTPUT_DIRECTORY=output
