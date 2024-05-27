@@ -1,0 +1,28 @@
+% Изменение стилей описаний рисунков, таблиц...
+\usepackage{caption}
+
+\DeclareCaptionLabelSeparator{custom}{ -- }
+\DeclareCaptionLabelFormat{flformat}{Рисунок #2}
+\DeclareCaptionLabelFormat{tlformat}{Таблица #2}
+
+
+\captionsetup[figure]{
+	font=Large,
+	labelsep=custom,
+	labelformat=flformat,
+	justification=centering,
+	margin=1cm,
+	aboveskip=0.5cm,
+	belowskip=0.5cm,
+}
+
+
+\captionsetup[table]{
+	format=plain,
+	font=Large,
+	labelsep=custom,
+	labelformat=tlformat,
+	singlelinecheck=false,
+	margin={\docparindent, 0pt},
+	skip=0.5em,
+}

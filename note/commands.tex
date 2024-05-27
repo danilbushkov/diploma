@@ -1,0 +1,11 @@
+% Пользовательские команды
+
+% Команда определения заголовков разделов, которые без нумерации и по середине страницы
+\newcommand{\csection}[1]{
+	{
+			\titleformat{\section}[block]{\centering}{\thesection}{1em}{}
+			\phantomsection
+			\section*{#1}
+			\addcontentsline{toc}{section}{#1}
+		}
+}

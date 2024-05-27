@@ -1,0 +1,138 @@
+%! TEX TS-program = xelatex
+
+\documentclass[a4paper,10pt]{article}
+
+% Подключение библиотек
+\usepackage{geometry}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{fontspec}
+\usepackage{setspace}
+\usepackage{ulem}
+\usepackage{indentfirst}
+\usepackage[english, russian]{babel}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{totcount}
+\usepackage{calc}
+\usepackage{tabularx}
+
+
+% Установка пути картинок
+\graphicspath{ {./images/} }
+
+% Установка базового шрифта (Требуется XeLatex)
+\setmainfont{Times New Roman}
+
+% Подключение файлов. В них возможны подключения библиотек. Поэтому выше список используемых  библиотек не полон.
+% Файл с константами документа
+\input{./constants.tex}
+% Файл с рамками
+\input{./frames.tex}
+% Файл настроек / стилизации таблицы содержания ("Содержание")
+\input{./toc.tex}
+% Файл стилизации названий разделов
+\input{./titlestyle.tex}
+% Файл, в котором содержаться пользовательские команды
+\input{./commands.tex}
+% Файл стилизации описаний рисунков и таблиц
+\input{./caption.tex}
+% Файл стилизации списков
+\input{./lists.tex}
+
+%\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+
+% Настройка отступов от краёв страницы до текста
+\geometry{top = 15mm, left = 25mm, right = 10mm, bottom = 15mm}
+
+% Убираем линию у верхнего колонтитула
+\renewcommand{\headrulewidth}{0pt}
+
+% Определяем стиль главной рамки
+\fancypagestyle{mainframe} {
+    \fancyhf{}
+    \fancyhead[L]{
+        \mainframe
+        {\tpga}
+        {Кафедра ЭВМ Группа ИВТ-41}{
+        \topic
+        }
+        {\authori}
+        {Долженкова}
+        {Скворцов}
+        {Долженкова}
+        {\thepage}
+        {\total{page}}
+    }
+
+}
+% Определяем стиль рамки для страниц
+\fancypagestyle{pageframe} {
+    \fancyhf{}
+    \fancyhead[L]{
+        \pageframe
+        {\tpga}
+        {\thepage}
+    }
+}
+
+
+%\setlength{\textfloatsep}{1cm plus 0.5cm minus 0.5cm}
+
+% Межстрочный интервал, равный 1.5
+\onehalfspacing
+
+% Устанавливаем отступ абзаца (Значение берется из файла констант)
+\setlength{\parindent}{\docparindent}
+
+% Выравнивание по ширине 
+% (Если не влезает текст, то увеличивает отступы между словами)
+\sloppy
+
+% Регистрация счётчиков для подсчёта разных объектов документа(страниц, формул, таблиц...)
+\regtotcounter{page}
+\regtotcounter{equation}
+\regtotcounter{figure}
+
+% Начало документа
+\begin{document}
+% Меняем название заголовка таблицы содержимого
+\renewcommand{\contentsname}{\hfill Содержание \hfill}
+% Устанавливаем размер шрифта 14pt
+
+\Large
+% Устанавливаем стиль пустой, чтобы убрать дефолтную нумерацию страниц
+\pagestyle{empty}
+% Подключаем титульник
+% Титульник не изменяет счётчик страниц, он как бы не участвует в нумерации страниц,
+% поэтому нумерация страниц начнётся со страницы "Реферат". 
+% В итоге как бы реферат не будет участвовать в нумерации, что нам и нужно
+\include{pages/title.tex}
+
+% Меняем размер нижнего отступа до текста, чтобы текст не заезжал на главную рамку. 
+% (Отступ текста до рамки 10mm)
+% Меняем как бы на странице "Реферат", чтобы изменения были задействованы на странице 
+% "Содержание". 
+\addtolength{\textheight}{-40mm}
+
+% Подключаем страницу "Реферат"
+\include{pages/abstract.tex}
+
+% Устанавливаем главную рамку для одной страницы
+\tocloftpagestyle{mainframe}
+
+% Устанавливаем рамку страниц, которая будет отрисовываться после главной
+\pagestyle{pageframe}
+
+% Меняем размер нижнего отступа до текста, чтобы текст до рамки страниц был 10mm.
+% Рамка страниц имеет меньшую высоту содержимого нижней таблицы.
+\addtolength{\textheight}{+25mm}
+% Устанавливаем "Содержание", включающее в себя описание разделов документа
+\tableofcontents\newpage
+
+% Подключаем содержимое документа
+\input{pages/content.tex}
+
+
+\end{document}
