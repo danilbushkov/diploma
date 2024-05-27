@@ -30,16 +30,18 @@
 \input{./constants.tex}
 % Файл с рамками
 \input{./frames.tex}
-% Файл настроек / стилизации таблицы содержания ("Содержание")
-\input{./toc.tex}
-% Файл стилизации названий разделов
-\input{./titlestyle.tex}
 % Файл, в котором содержаться пользовательские команды
 \input{./commands.tex}
+% Общие натройки стилей
+\input{./styles/general.tex}
+% Файл настроек / стилизации таблицы содержания ("Содержание")
+\input{./styles/toc.tex}
+% Файл стилизации названий разделов
+\input{./styles/titlestyle.tex}
 % Файл стилизации описаний рисунков и таблиц
-\input{./caption.tex}
+\input{./styles/caption.tex}
 % Файл стилизации списков
-\input{./lists.tex}
+\input{./styles/lists.tex}
 
 %\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 
@@ -55,13 +57,13 @@
     \fancyhead[L]{
         \mainframe
         {\tpga}
-        {Кафедра ЭВМ Группа ИВТ-41}{
+        {\departmentandgroupinframe}{
         \topic
         }
-        {\authori}
-        {Долженкова}
-        {Скворцов}
-        {Долженкова}
+        {\authorinframe}
+        {\inspectorinframe}
+        {\norminspectorinframe}
+        {\approverinframe}
         {\thepage}
         {\total{page}}
     }
