@@ -27,7 +27,11 @@
 
 % Подключение файлов. В них возможны подключения библиотек. Поэтому выше список используемых  библиотек не полон.
 % Файл с константами документа
-\input{./constants.tex}
+\IfFileExists{constants.tex}{
+    \input{./constants.tex}
+}{
+    \input{./constants.example.tex}
+}
 % Файл с рамками
 \input{./frames.tex}
 % Файл, в котором содержаться пользовательские команды
@@ -97,6 +101,14 @@
 \regtotcounter{equation}
 \regtotcounter{figure}
 
+% Подключение файла пользовательских стилей, команд и т.д.
+\IfFileExists{custom.tex}{
+    \input{custom.tex}
+}{
+    \input{custom.example.tex}
+}
+
+
 % Начало документа
 \begin{document}
 % Меняем название заголовка таблицы содержимого
@@ -110,7 +122,11 @@
 % Титульник не изменяет счётчик страниц, он как бы не участвует в нумерации страниц,
 % поэтому нумерация страниц начнётся со страницы "Реферат". 
 % В итоге как бы реферат не будет участвовать в нумерации, что нам и нужно
-\include{pages/title.tex}
+\IfFileExists{./pages/title.tex} {
+	\include{pages/title.tex}
+} {
+	\include{pages/title.example.tex}
+}
 
 % Меняем размер нижнего отступа до текста, чтобы текст не заезжал на главную рамку. 
 % (Отступ текста до рамки 10mm)
@@ -119,7 +135,11 @@
 \addtolength{\textheight}{-40mm}
 
 % Подключаем страницу "Реферат"
-\include{pages/abstract.tex}
+\IfFileExists{./pages/abstract.tex}{
+	\include{pages/abstract.tex}
+}{
+	\include{pages/abstract.example.tex}
+}
 
 % Устанавливаем главную рамку для одной страницы
 \tocloftpagestyle{mainframe}
@@ -134,7 +154,11 @@
 \tableofcontents\newpage
 
 % Подключаем содержимое документа
-\input{pages/content.tex}
+\IfFileExists{./pages/content.tex} {
+	\input{pages/content.tex}
+}{
+	\input{pages/content.example.tex}
+}
 
 
 \end{document}

@@ -25,10 +25,18 @@
 
 \vspace{1.5em}
 
-\input{./pages/abstract/tags}
+\IfFileExists{pages/abstract/tags.tex}{
+	\input{pages/abstract/tags.tex}
+}{
+	\input{pages/abstract.example/tags.tex}
+}
 
 \vspace{1.5em}
 
-\input{./pages/abstract/content}
+\IfFileExists{pages/abstract/content.tex}{
+	\input{pages/abstract/content.tex}
+} {
+	\input{pages/abstract.example/content.tex}
+}
 
 }
