@@ -124,7 +124,7 @@
 % В итоге как бы реферат не будет участвовать в нумерации, что нам и нужно
 \IfFileExists{./pages/title.tex} {
 	\include{pages/title.tex}
-} {
+}{
 	\include{pages/title.example.tex}
 }
 
@@ -135,7 +135,7 @@
 \addtolength{\textheight}{-40mm}
 
 % Подключаем страницу "Реферат"
-\IfFileExists{./pages/abstract.tex}{
+\IfFileExists{./pages/abstract.tex} {
 	\include{pages/abstract.tex}
 }{
 	\include{pages/abstract.example.tex}
