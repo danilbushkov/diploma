@@ -59,30 +59,49 @@
 	\end{center}
 
 	\newcommand{\ulinesize}{2.5cm}
+	\newcommand{\namesize}{3.7cm}
 
 	\large
 	\vspace{1cm}
 	\noindent
-	Разработал: \studentgroup \hfill \uline{\hspace{\ulinesize}}
-	/ \uline{\authorwithinitials} / \hspace{8mm} \uline{\hspace{\ulinesize}}
+	Разработал: \studentgroup
+	\hfill
+	\uline{\hspace{\ulinesize}}
+	/\uline{\makebox[\namesize][l]{ \authorwithinitials}} /
+	\uline{\hspace{\ulinesize}}
 
 	\vspace{1.5cm}
 	\noindent
 	Руководитель: \supervisorrank
-	\hfill \uline{\hspace{\ulinesize}}
-	/ \uline{\supervisor} / \uline{\hspace{\ulinesize}}
+	\hfill
+	\uline{\hspace{\ulinesize}}
+	/\uline{\makebox[\namesize][l]{ \supervisor}} /
+	\uline{\hspace{\ulinesize}}
+
+	\ifthenelse{\boolean{consultantexists}}{
+		\vspace{1.5cm}
+		\noindent
+		Консультант: \consultantrank
+		\hfill
+		\uline{\hspace{\ulinesize}}
+		/\uline{\makebox[\namesize][l]{ \consultant}} /
+		\uline{\hspace{\ulinesize}}}{}
 
 	\vspace{1.5cm}
 	\noindent
 	Нормоконтролер: \norminspectorrank
-	\hfill \uline{\hspace{\ulinesize}}
-	/ \uline{\norminspector} / \hspace{4mm} \uline{\hspace{\ulinesize}}
+	\hfill
+	\uline{\hspace{\ulinesize}}
+	/\uline{\makebox[\namesize][l]{ \norminspector}} /
+	\uline{\hspace{\ulinesize}}
 
 	{
 		\small
 		\itshape
 		\hfill
-		(подпись) \hspace{1.6cm} (Ф.И.О) \hspace{2.2cm} (дата) \hspace{0.8cm}
+		\makebox[\ulinesize][c]{(подпись)}~
+		\makebox[\namesize][c]{(Ф.И.О)}~
+		\makebox[\ulinesize][c]{(дата)}
 	}
 
 	\begin{center}
