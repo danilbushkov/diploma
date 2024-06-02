@@ -9,3 +9,26 @@
 			\addcontentsline{toc}{section}{#1}
 		}
 }
+
+
+\newcounter{russianletters}
+\renewcommand{\therussianletters}{\ifcase\value{russianletters}\or А\or Б\or В\or Г\or Д\or Е\or Ж\or З\or И\or Й\or К\or Л\or М\or Н\or О\or П\or Р\or С\or Т\or У\or Ф\or Х\or Ц\or Ч\or Ш\or Щ\or Ъ\or Ы\or Ь\or Э\or Ю\or Я\fi}
+% Приложение
+% 1 необязательный аргумент - характер приложения (По умолчанию - обязательное)
+% 2 аргумент - название приложения
+\newcommand{\docappendix}[2][обязательное]{
+	{
+			\newpage
+			\stepcounter{russianletters}
+			\begin{center}
+				\phantomsection
+				\addcontentsline{toc}{section}{Приложение \therussianletters. #2}
+				Приложение \therussianletters
+
+				(#1)
+
+				#2
+			\end{center}
+			\vspace{1em}
+		}
+}
