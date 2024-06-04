@@ -1,4 +1,11 @@
 \begin{titlepage}
+
+	\newcommand{\verticalspace}{1.5cm}
+
+
+	\ifthenelse{\boolean{consultantexists}}{
+		\renewcommand{\verticalspace}{1.2cm}}{}
+
 	\newpage
 	\singlespacing
 	\vspace{0.8cm}
@@ -70,7 +77,7 @@
 	/\uline{\makebox[\namesize][l]{ \authorwithinitials}} /
 	\uline{\hspace{\ulinesize}}
 
-	\vspace{1.5cm}
+	\vspace{\verticalspace}
 	\noindent
 	Руководитель: \supervisorrank
 	\hfill
@@ -79,7 +86,7 @@
 	\uline{\hspace{\ulinesize}}
 
 	\ifthenelse{\boolean{consultantexists}}{
-		\vspace{1.5cm}
+		\vspace{\verticalspace}
 		\noindent
 		Консультант: \consultantrank
 		\hfill
@@ -87,7 +94,7 @@
 		/\uline{\makebox[\namesize][l]{ \consultant}} /
 		\uline{\hspace{\ulinesize}}}{}
 
-	\vspace{1.5cm}
+	\vspace{\verticalspace}
 	\noindent
 	Нормоконтролер: \norminspectorrank
 	\hfill
