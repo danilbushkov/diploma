@@ -1,0 +1,5 @@
+# Ignore everything in this directory
+# This directory is necessary during build
+*
+# Except this file
+!.gitignore
