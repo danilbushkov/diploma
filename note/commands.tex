@@ -17,20 +17,20 @@
 % 1 необязательный аргумент - характер приложения (По умолчанию - обязательное)
 % 2 аргумент - название приложения
 \newcommand{\docappendix}[2][обязательное]{
+	\refstepcounter{russianletters}
 	{
-			\newpage
-			\stepcounter{russianletters}
-			\begin{center}
-				\phantomsection
-				\addcontentsline{toc}{section}{Приложение \therussianletters. #2}
-				Приложение \therussianletters
+		\newpage
+		\begin{center}
+			\phantomsection
+			\addcontentsline{toc}{section}{Приложение \therussianletters. #2}
+			Приложение \therussianletters
 
-				(#1)
+			(#1)
 
-				#2
-			\end{center}
-			\vspace{1em}
-		}
+			#2
+		\end{center}
+		\vspace{1em}
+	}
 }
 
 % Ссылка на элемент библиографического списка
