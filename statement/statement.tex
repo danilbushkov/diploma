@@ -5,13 +5,13 @@
 
 \usepackage[english, russian]{babel}
 \usepackage{fontspec}
-\usepackage{tabularray}
 \usepackage{fancyhdr}
 \usepackage[top = 5mm, left = 20mm, right = 5mm, bottom = 15mm]{geometry}
 \usepackage{ifthen}
 \usepackage{graphicx}
-\usepackage{layouts}
-\usepackage{makecell}
+\usepackage{tabularray}
+\UseTblrLibrary{counter}
+\UseTblrLibrary{functional}
 
 \input{../note/frames.tex}
 \input{../note/constants.example.tex}
@@ -41,20 +41,53 @@
 
 \setmainfont{Arial}
 
-
 \setlength{\parindent}{0cm}
+
+
+\newcounter{rnum}
+\setcounter{rnum}{0}
+\newcommand{\printrownum}{\stepcounter{rnum}\thernum}
 
 % Начало документа
 \begin{document}
 \large
 
-\begin{tblr}{
+
+\begin{filecontents}{content.tex}
+	&   &  &  &  &  & \\
+	&   &  & Документация общая &  &  & \\
+	&   &  & Вновь разработанная &  &  & \\
+	&   &  &  &  &  & \\
+	&   &  & Пояснительная записка & 15 &  & \\
+	&   &  &  &  &  & \\
+	&   &  & Графическая часть &  &  & \\
+	&   &  & Вновь разработанная &  &  & \\
+	&   &  & Cхемы алгоритмов & 2 &  & Плакат \\
+	&   &  &  &  &  & \\
+	&   &  &  &  &  & \\
+	&   &  &  &  &  & \\
+	&   &  &  &  &  & \\
+	&   &  &  &  &  & \\
+	&   &  &  &  &  & \\
+	&   &  &  &  &  & \\
+	&   &  &  &  &  & \\
+	&   &  &  &  &  & \\
+	&   &  &  &  &  & \\
+	&   &  &  &  &  & \\
+	&   &  &  &  &  & \\
+	&   &  &  &  &  & \\
+	&   &  &  &  &  & \\
+\end{filecontents}
+
+\begin{tblr}[evaluate=\fileInput]{
+	stretch=1.5,
 	width=\textwidth,
 	hline{2-Y} = {1pt},
 	vline{2-Y} = {1pt},
-	row{1}={20mm,m,c},
-	row{2-Z}={8.05mm,m,c},
-	colspec={X[0.20]X[0.35]X[2.65]X[2.42]X[0.35]X[0.35]X[0.76]}
+	row{1}={ht=20mm,valign=m,halign=c},
+	row{2-Z}={ht=8.05mm,valign=m,halign=c},
+	colspec={X[0.20]X[0.35]X[2.65]X[2.42]X[0.35]X[0.35]X[0.76]},
+	cell{2-Z}{1}={appto={\printrownum}},
 	}
 	\rotatebox[origin=c]{90}{№ строки}                              &
 	\rotatebox[origin=c]{90}{Формат}                                &
@@ -62,58 +95,11 @@
 	Наименование                                                    &
 	\rotatebox[origin=c]{90}{\parbox{20mm}{\centering Кол. листов}} &
 	№ экз.                                                          &
-	Приме\-чание                                                                      \\
+	Приме\-чание
+	\\
 
-
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
-	                                                                &   &  &  &  &  & \\
+	\fileInput{content.tex}
 \end{tblr}
-%
-%\begin{tblr}{\textwidth}{
-%		>{\centering\arraybackslash
-%				\hsize=0.5\hsize
-%			}X|
-%		>{\centering\arraybackslash}X|
-%		>{\centering\arraybackslash}X|
-%		>{\centering\arraybackslash}X|
-%		>{\centering\arraybackslash
-%			}X|
-%		>{\centering\arraybackslash}X|
-%		>{\centering\arraybackslash}X
-%	}
-%	\rotatebox[origin=c]{90}{№ строки} &
-%	\rotatebox[origin=c]{90}{Формат}   &
-%	Обозначение                        &
-%	Наименование                       &
-%	\rotatebox[origin=c]{90}{\makecell{Кол.              \\ листов}}&
-%	№ экз.                             &
-%	Приме\-чание                                         \\
-%	\hline
-%	                                   &   &  &  &  &  & \\
-%	\hline
-%\end{tblr}
-%
 
 
 
