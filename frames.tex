@@ -2,7 +2,44 @@
 \usepackage{fontspec}
 \newcommand{\arial}{\fontspec{Arial}}
 \usepackage{tikz}
-\newcommand{\mainframe}[9]{
+
+\usepackage{xkeyval}
+
+\makeatletter
+
+% Определение команды с ключами и значениями
+\define@key{mainframe}{creator}[]{\def\mf@creator{#1}}
+\define@key{mainframe}{inspector}[]{\def\mf@inspector{#1}}
+\define@key{mainframe}{norminspector}[]{\def\mf@norminspector{#1}}
+\define@key{mainframe}{approver}[]{\def\mf@approver{#1}}
+\define@key{mainframe}{page}[]{\def\mf@page{#1}}
+\define@key{mainframe}{total}[]{\def\mf@total{#1}}
+\define@key{mainframe}{departmentandgroup}[]{\def\mf@departmentandgroup{#1}}
+\define@key{mainframe}{tpga}[]{\def\mf@tpga{#1}}
+\define@key{mainframe}{topic}[]{\def\mf@topic{#1}}
+
+%\newcommand{\mycmd}[1][]{%
+%	% Установка значений по умолчанию
+%	% Применение переданных значений
+%	\setkeys{mainframe}{#1}%
+%	% Использование значений
+%	Option A: \mycmd@optionA \\
+%	Option B: \mycmd@optionB
+%}
+
+\newcommand{\mainframe}[1][]{
+	\setkeys{mainframe}{
+		creator,
+		inspector,
+		norminspector,
+		approver,
+		page,
+		total,
+		departmentandgroup,
+		tpga,
+		topic
+	}
+	\setkeys{mainframe}{#1}
 	\itshape
 	\small
 	\arial
@@ -153,10 +190,10 @@
 
 		++(0, -5mm)
 		+(-10mm, 0)
-		node {#9}
+		node {\mf@total}
 
 		+(-27.5mm, 0)
-		node {#8}
+		node {\mf@page}
 		;
 
 
@@ -167,25 +204,25 @@
 		node [
 				text width = 21mm,
 				align = left
-			] {#4}
+			] {\mf@creator}
 
 		+(11.5mm, -7.7mm)
 		node [
 				text width = 21mm,
 				align = left
-			] {#5}
+			] {\mf@inspector}
 
 		+(11.5mm, -17.7mm)
 		node [
 				text width = 21mm,
 				align = left
-			] {#6}
+			] {\mf@norminspector}
 
 		+(11.5mm, -22.7mm)
 		node [
 				text width = 21mm,
 				align = left
-			] {#7}
+			] {\mf@approver}
 		;
 
 		%\upshape
@@ -193,7 +230,7 @@
 		\draw
 		([shift={(-5mm, 30mm)}] current page.south east)
 		+(-60mm, 7.5mm)
-		node {#1}
+		node {\mf@tpga}
 		;
 
 		\large
@@ -204,7 +241,7 @@
 				anchor = center,
 				text width = 50mm,
 				align = center
-			]{#2}
+			]{\mf@departmentandgroup}
 		;
 
 		\large
@@ -215,13 +252,12 @@
 				anchor = center,
 				text width = 70mm,
 				align = center
-			]{#3}
+			]{\mf@topic}
 		;
 
 	\end{tikzpicture}
 }
-
-
+\makeatother
 
 
 \newcommand{\pageframe}[2]{

@@ -13,8 +13,9 @@
 \UseTblrLibrary{counter}
 \UseTblrLibrary{functional}
 
-\input{../note/frames.tex}
+\input{../frames.tex}
 \input{../note/constants.example.tex}
+
 % Убираем линию у верхнего колонтитула
 \renewcommand{\headrulewidth}{0pt}
 
@@ -22,19 +23,18 @@
 \fancypagestyle{mainframe} {
     \fancyhf{}
     \fancyhead[L]{
-        \mainframe
-        {\tpga}
-        {\departmentandgroupinframe}{
-        \topic
-        }
-        {\authorinframe}
-        {\inspectorinframe}
-        {\norminspectorinframe}
-        {\approverinframe}
-        {\thepage}
-        {1}
+        \mainframe[
+            tpga=\tpga,
+            departmentandgroup=\departmentandgroupinframe,
+            topic=\topic,
+            creator=\authorinframe,
+            inspector=\inspectorinframe,
+            norminspector=\norminspectorinframe,
+            approver=\approverinframe,
+            page=\thepage,
+            total=1
+        ]
     }
-
 }
 
 \pagestyle{mainframe}
