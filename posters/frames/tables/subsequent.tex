@@ -1,0 +1,76 @@
+
+\newcommand{\subsequenttable}[2]{
+	\itshape
+	\small
+	\arial
+	\begin{tikzpicture}[remember picture, overlay]
+
+		\draw[black, ultra thick]
+		([shift={(-5mm, 20mm)}] current page.south east)
+		--
+		+(-185mm, 0)
+
+		([shift={(-190mm, 10mm)}] current page.south east)
+		--
+		+(65mm, 0)
+
+		([shift={(-5mm, 5mm)}] current page.south east)
+		+(0, 8mm) -- +(-10mm, 8mm)
+		+(-10mm, 0) -- +(-10mm, 15mm)
+
+		([shift={(-190mm, 5mm)}] current page.south east)
+		-- +(0, 15mm)
+		++(7mm, 0) -- +(0, 15mm)
+		++(10mm, 0) -- +(0, 15mm)
+		++(23mm, 0) -- +(0, 15mm)
+		++(15mm, 0) -- +(0, 15mm)
+		++(10mm, 0) -- +(0, 15mm)
+		;
+
+		\draw[black, thick]
+		([shift={(-190mm, 15mm)}] current page.south east)
+		-- +(65mm, 0)
+		;
+
+		\draw[anchor=mid]
+		([shift={(-190mm, 5mm)}] current page.south east)
+		++(0, 2.3mm)
+		+(3.5mm, 0)
+		node {Изм.}
+
+		++(7mm, 0)
+		+(5mm, 0)
+		node {Лист}
+
+		++(10mm, 0)
+		+(11.5mm, 0)
+		node {№ докум.}
+
+		++(23mm, 0)
+		+(7.5mm, 0)
+		node {Подп.}
+
+		++(15mm, 0)
+		+(5mm, 0)
+		node {Дата}
+
+		([shift={(-5mm, 13mm)}] current page.south east)
+		+(-5mm, 3.3mm)
+		node {Лист}
+		;
+
+		\normalsize
+		\draw
+		([shift={(-10mm, 9mm)}] current page.south east)
+		node {#2}
+		;
+
+		\huge
+		\draw
+		([shift={(85mm, 5mm)}] current page.south west)
+		+(55mm, +7.5mm)
+		node {#1}
+		;
+
+	\end{tikzpicture}
+}
