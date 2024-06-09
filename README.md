@@ -62,4 +62,4 @@ git pull origin main
 Шаблоны:
 
 - [note - Пояснительная записка](./note#readme)
-- [statement - Ведомость](./note#readme)
+- [statement - Ведомость](./statement#readme)
