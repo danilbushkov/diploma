@@ -1,5 +1,18 @@
 
-\newcommand{\subsequenttable}[2]{
+
+
+\makeatletter
+
+\define@key{subsequenttable}{tpga}[]{\def\st@tpga{#1}}
+\define@key{subsequenttable}{page}[]{\def\st@page{#1}}
+
+
+\newcommand{\subsequenttable}[1][]{
+	\setkeys{subsequenttable}{
+		tpga,
+		page
+	}
+	\setkeys{subsequenttable}{#1}
 	\itshape
 	\small
 	\arial
@@ -62,15 +75,18 @@
 		\normalsize
 		\draw
 		([shift={(-10mm, 9mm)}] current page.south east)
-		node {#2}
+		node {\st@page}
 		;
 
 		\huge
 		\draw
-		([shift={(85mm, 5mm)}] current page.south west)
-		+(55mm, +7.5mm)
-		node {#1}
+		([shift={(-70mm, 5mm)}] current page.south east)
+		+(0mm, +7.5mm)
+		node {\st@tpga}
 		;
 
 	\end{tikzpicture}
 }
+
+
+\makeatother
