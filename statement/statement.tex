@@ -14,8 +14,8 @@
 \UseTblrLibrary{counter}
 \UseTblrLibrary{functional}
 
+% Подключение рамок
 \input{../frames.tex}
-\input{../note/constants.example.tex}
 
 % Убираем у длинных таблиц заголовки и т.д.
 \DefTblrTemplate{contfoot-text}{default}{}
@@ -24,6 +24,12 @@
 \DefTblrTemplate{conthead}{default}{}
 \DefTblrTemplate{capcont}{default}{}
 
+% Подключение констант
+\IfFileExists{./constants.tex}{
+    \input{./constants.tex}
+}{
+    \input{./constants.example.tex}
+}
 
 % Убираем линию у верхнего колонтитула
 \renewcommand{\headrulewidth}{0pt}
@@ -40,7 +46,7 @@
     \fancyhead[L]{
         \setcounter{rnum}{0}
         \mainframe[
-            tpga=\tpga,
+            tpga=\tpga~\doctype,
             departmentandgroup=\departmentandgroupinframe,
             topic=\topic,
             creator=\authorinframe,
@@ -48,7 +54,8 @@
             norminspector=\norminspectorinframe,
             approver=\approverinframe,
             page=\thepage,
-            total=\pageref*{LastPage}
+            total=\pageref*{LastPage},
+            letter=Э
         ]
     }
 }

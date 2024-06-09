@@ -17,6 +17,7 @@
 \define@key{mainframe}{departmentandgroup}[]{\def\mf@departmentandgroup{#1}}
 \define@key{mainframe}{tpga}[]{\def\mf@tpga{#1}}
 \define@key{mainframe}{topic}[]{\def\mf@topic{#1}}
+\define@key{mainframe}{letter}[]{\def\mf@letter{#1}}
 
 \newcommand{\mainframe}[1][]{
 	\setkeys{mainframe}{
@@ -28,7 +29,8 @@
 		total,
 		departmentandgroup,
 		tpga,
-		topic
+		topic,
+		letter
 	}
 	\setkeys{mainframe}{#1}
 	\itshape
@@ -185,6 +187,9 @@
 
 		+(-27.5mm, 0)
 		node {\mf@page}
+
+		+(-47.5mm, 0)
+		node {\mf@letter}
 		;
 
 
