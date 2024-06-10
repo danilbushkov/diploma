@@ -10,7 +10,7 @@
 \define@key{titletable}{total}[]{\def\tt@total{#1}}
 \define@key{titletable}{departmentandgroup}[]{\def\tt@departmentandgroup{#1}}
 \define@key{titletable}{tpga}[]{\def\tt@tpga{#1}}
-\define@key{titletable}{topic}[]{\def\tt@topic{#1}}
+\define@key{titletable}{name}[]{\def\tt@name{#1}}
 
 
 
@@ -25,7 +25,7 @@
 		total,
 		departmentandgroup,
 		tpga,
-		topic,
+		name,
 	}
 	\setkeys{titletable}{#1}
 	\itshape
@@ -247,7 +247,7 @@
 				anchor = center,
 				text width = 70mm,
 				align = center
-			]{\tt@topic}
+			]{\tt@name}
 		;
 
 	\end{tikzpicture}
