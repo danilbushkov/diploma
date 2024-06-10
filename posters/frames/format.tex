@@ -1,0 +1,10 @@
+
+\newcommand{\paperformat}[2][Формат]{
+	\begin{tikzpicture}[remember picture, overlay]
+
+		\draw[black, ultra thick]
+		([shift={(-30mm, 2.3mm)}] current page.south east)
+		node{#1 #2};
+
+	\end{tikzpicture}
+}

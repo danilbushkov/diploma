@@ -7,4 +7,106 @@
 \input{./frames/tables.tex}
 \input{./frames/simpleframe.tex}
 \input{./frames/topinscriptions.tex}
+\input{./frames/format.tex}
+
+\makeatletter
+
+% Определение команды с ключами и значениями
+\define@key{booktitleframe}{creator}[]{\def\bktf@creator{#1}}
+\define@key{booktitleframe}{inspector}[]{\def\bktf@inspector{#1}}
+\define@key{booktitleframe}{norminspector}[]{\def\bktf@norminspector{#1}}
+\define@key{booktitleframe}{approver}[]{\def\bktf@approver{#1}}
+\define@key{booktitleframe}{page}[]{\def\bktf@page{#1}}
+\define@key{booktitleframe}{total}[]{\def\bktf@total{#1}}
+\define@key{booktitleframe}{departmentandgroup}[]{\def\bktf@departmentandgroup{#1}}
+\define@key{booktitleframe}{tpga}[]{\def\bktf@tpga{#1}}
+\define@key{booktitleframe}{topic}[]{\def\bktf@topic{#1}}
+\define@key{booktitleframe}{paperformat}[]{\def\bktf@paperformat{#1}}
+
+
+% Рамка заглавной страницы бумажного формата
+\newcommand{\booktitleframe}[1][]{
+\setkeys{booktitleframe}{
+	creator,
+	inspector,
+	norminspector,
+	approver,
+	page,
+	total,
+	departmentandgroup,
+	tpga,
+	topic,
+	paperformat,
+}
+\setkeys{booktitleframe}{#1}
+\simpleframe
+\titletable[
+	tpga=\bktf@tpga,
+	departmentandgroup=\bktf@departmentandgroup,
+	topic=\bktf@topic,
+	creator=\bktf@creator,
+	inspector=\bktf@inspector,
+	norminspector=\bktf@norminspector,
+	approver=\bktf@approver,
+	page=\bktf@page,
+	total=\bktf@total,
+]
+\topinsсriptionforbook[\bktf@tpga]
+\paperformat{\bktf@paperformat}
+}
+
+
+\makeatother
+
+
+
+
+\makeatletter
+
+% Определение команды с ключами и значениями
+\define@key{landscapetitleframe}{creator}[]{\def\lstf@creator{#1}}
+\define@key{landscapetitleframe}{inspector}[]{\def\lstf@inspector{#1}}
+\define@key{landscapetitleframe}{norminspector}[]{\def\lstf@norminspector{#1}}
+\define@key{landscapetitleframe}{approver}[]{\def\lstf@approver{#1}}
+\define@key{landscapetitleframe}{page}[]{\def\lstf@page{#1}}
+\define@key{landscapetitleframe}{total}[]{\def\lstf@total{#1}}
+\define@key{landscapetitleframe}{departmentandgroup}[]{\def\lstf@departmentandgroup{#1}}
+\define@key{landscapetitleframe}{tpga}[]{\def\lstf@tpga{#1}}
+\define@key{landscapetitleframe}{topic}[]{\def\lstf@topic{#1}}
+\define@key{landscapetitleframe}{paperformat}[]{\def\lstf@paperformat{#1}}
+
+
+% Рамка последующих страниц бумажного формата
+\newcommand{\landscapetitleframe}[1][]{
+\setkeys{landscapetitleframe}{
+	creator,
+	inspector,
+	norminspector,
+	approver,
+	page,
+	total,
+	departmentandgroup,
+	tpga,
+	topic,
+	paperformat,
+}
+\setkeys{landscapetitleframe}{#1}
+\simpleframe
+\titletable[
+	tpga=\lstf@tpga,
+	departmentandgroup=\lstf@departmentandgroup,
+	topic=\lstf@topic,
+	creator=\lstf@creator,
+	inspector=\lstf@inspector,
+	norminspector=\lstf@norminspector,
+	approver=\lstf@approver,
+	page=\lstf@page,
+	total=\lstf@total,
+]
+\topinsсriptionforlandscape[\lstf@tpga]
+\paperformat{\lstf@paperformat}
+}
+
+
+\makeatother
 

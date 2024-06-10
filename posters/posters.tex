@@ -25,8 +25,7 @@
 \fancypagestyle{mainframe} {
     \fancyhf{}
     \fancyhead[L]{
-        \simpleframe
-        \titletable[
+        \landscapetitleframe[
             tpga=\tpga~\doctype,
             departmentandgroup=\departmentandgroupinframe,
             topic=\topic,
@@ -36,11 +35,9 @@
             approver=\approverinframe,
             page=\thepage,
             total=2,
-            letter=Э
+            paperformat=A1,
         ]
-        %\subsequenttable[tpga=TПЖА 09.03.01.514-01 ДПЛ, page=1]
-        \topinsсriptionforlandscape[TПЖА 09.03.01.514-01 ДПЛ]
-        \topinsсriptionforbook[TПЖА 09.03.01.514-01 ДПЛ]
+        
     }
 }
 \setlength{\parindent}{0cm}
