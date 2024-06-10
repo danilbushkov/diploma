@@ -1,0 +1,48 @@
+
+% Верхняя надпись для альбомной страницы
+\newcommand{\topinsсriptionforlandscape}[1][]{
+	\itshape
+	\begin{tikzpicture}[remember picture, overlay]
+
+		\draw[black, ultra thick]
+
+		([shift={(90mm, -5mm)}] current page.north west)
+		--
+		++(0, -14mm)
+		--
+		+(-70mm, 0);
+
+
+		\Large
+		\draw
+		([shift={(55mm, -12mm)}] current page.north west)
+		node[rotate=180]{#1};
+
+
+	\end{tikzpicture}
+}
+
+
+
+% Верхняя надпись для книжной страницы
+\newcommand{\topinsсriptionforbook}[1][]{
+	\itshape
+	\begin{tikzpicture}[remember picture, overlay]
+
+		\draw[black, ultra thick]
+
+		([shift={(-5mm, -75mm)}] current page.north east)
+		--
+		++(-14mm, 0mm)
+		--
+		+(0, 70mm);
+
+
+		\Large
+		\draw
+		([shift={(-12mm, -40mm)}] current page.north east)
+		node[rotate=90]{#1};
+
+
+	\end{tikzpicture}
+}

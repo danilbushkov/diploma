@@ -2,11 +2,16 @@
 
 \documentclass[10pt]{article}
 
-
 %\usepackage[english, russian]{babel}
 \usepackage{fontspec}
 \usepackage{fancyhdr}
 \usepackage[a1paper, top = 5mm, left = 20mm, right = 5mm, bottom = 5mm]{geometry}
+
+
+
+\setmainfont{Arial}
+
+\DeclareTextFontCommand{\textfallback}{\fallbackfont}
 
 % Подключение рамок
 \input{./frames.tex}
@@ -21,7 +26,9 @@
     \fancyhf{}
     \fancyhead[L]{
         \simpleframe
-        \subsequenttable[tpga=TПЖА 09.03.01.514 ПЗ, page=1]
+        \subsequenttable[tpga=TПЖА 09.03.01.514-01 ДПЛ, page=1]
+        \topinsсriptionforlandscape[TПЖА 09.03.01.514-01 ДПЛ]
+        \topinsсriptionforbook[TПЖА 09.03.01.514-01 ДПЛ]
     }
 }
 \setlength{\parindent}{0cm}
@@ -32,6 +39,7 @@
 
 \thispagestyle{mainframe}
 
+\vspace*{10em}
 test
 
 \end{document}
