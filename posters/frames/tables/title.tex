@@ -1,1 +1,269 @@
 
+\makeatletter
+
+% Определение команды с ключами и значениями
+\define@key{mainframe}{creator}[]{\def\mf@creator{#1}}
+\define@key{mainframe}{inspector}[]{\def\mf@inspector{#1}}
+\define@key{mainframe}{norminspector}[]{\def\mf@norminspector{#1}}
+\define@key{mainframe}{approver}[]{\def\mf@approver{#1}}
+\define@key{mainframe}{page}[]{\def\mf@page{#1}}
+\define@key{mainframe}{total}[]{\def\mf@total{#1}}
+\define@key{mainframe}{departmentandgroup}[]{\def\mf@departmentandgroup{#1}}
+\define@key{mainframe}{tpga}[]{\def\mf@tpga{#1}}
+\define@key{mainframe}{topic}[]{\def\mf@topic{#1}}
+\define@key{mainframe}{letter}[]{\def\mf@letter{#1}}
+
+
+
+% Таблица рамки заглавной страницы
+\newcommand{\titletable}[1][]{
+	\setkeys{mainframe}{
+		creator,
+		inspector,
+		norminspector,
+		approver,
+		page,
+		total,
+		departmentandgroup,
+		tpga,
+		topic,
+		letter
+	}
+	\setkeys{mainframe}{#1}
+	\itshape
+	\small
+	\begin{tikzpicture}[remember picture, overlay]
+
+		\draw[black, ultra thick]
+		([shift={(-5mm, 60mm)}] current page.south east)
+		--
+		+(-185mm, 0)
+		++(0, -15mm)
+		--
+		+(-120mm, 0)
+		++(0, -5mm)
+		--
+		+(-50mm, 0)
+		++(0, -15mm)
+		--
+		+(-50mm, 0)
+		++(0, -5mm)
+		--
+		++(-120mm, 0)
+		++(0, 15mm)
+		--
+		+(-65mm, 0)
+		++(0, 5mm)
+		--
+		++(-65mm, 0)
+		++(0, 20mm)
+		--
+		+(0, -60mm)
+		++(7mm, 0)
+		--
+		+(0, -25mm)
+		++(10mm, 0)
+		--
+		+(0, -60mm)
+		++(23mm, 0)
+		--
+		+(0, -60mm)
+		++(15mm, 0)
+		--
+		+(0, -60mm)
+		++(10mm, 0)
+		--
+		+(0, -60mm)
+
+		++(70mm, -15mm)
+		--
+		+(0, -40mm)
+		++(15mm, 0)
+		--
+		+(0, -20mm)
+		+(5mm, -20mm)
+		--
+		+(5mm, -25mm)
+		++(17mm, 0)
+		--
+		+(0, -20mm)
+		;
+
+
+		\draw[black, thick]
+		([shift={(-190mm, 55mm)}] current page.south east)
+		--
+		+(65mm, 0)
+		++(0, -5mm)
+		--
+		+(65mm, 0)
+		++(0, -5mm)
+		--
+		+(65mm, 0)
+		++(0, -15mm)
+		--
+		+(65mm, 0)
+		++(0, -5mm)
+		--
+		+(65mm, 0)
+		++(0, -5mm)
+		--
+		+(65mm, 0)
+		++(0, -5mm)
+		--
+		+(65mm, 0)
+		++(0, -5mm)
+		--
+		++(65mm, 0)
+
+		++(75mm, 15mm)
+		--
+		+(0, 15mm)
+		++(5mm, 0)
+		--
+		+(0, 15mm)
+		++(5mm, 0)
+		--
+		+(0, 15mm)
+
+
+		;
+
+		\draw[anchor=mid]
+		([shift={(-190mm, 40mm)}] current page.south east)
+		++(0, -2.7mm)
+		+(3.5mm, 0)
+		node {Изм.}
+
+		+(12mm, 0)
+		node {Лист}
+
+		+(28.5mm, 0)
+		node {№ докум.}
+
+		+(47.5mm, 0)
+		node {Подп.}
+
+		+(60mm, 0)
+		node {Дата}
+
+		+(8.5mm, -5mm)
+		node [
+				text width = 15mm,
+				align = left
+			] {Разраб.}
+
+		+(8.5mm, -10mm)
+		node [
+				text width = 15mm,
+				align = left
+			]{Пров.}
+
+		+(8.5mm, -15mm)
+		node [
+				text width = 15mm,
+				align = left
+			] {Реценз.}
+
+		+(8.5mm, -20mm)
+		node [
+				text width = 15mm,
+				align = left
+			] {Н. контр.}
+
+		+(8.5mm, -25mm)
+		node [
+				text width = 15mm,
+				align = left
+			] {Утв.}
+
+
+
+
+
+		([shift={(-5mm, 30mm)}] current page.south east)
+		++(0, -2.7mm)
+		+(-10mm, 0)
+		node {Листов}
+
+		+(-27.5mm, 0)
+		node {Лист}
+
+		+(-42.5mm, 0)
+		node {Литера}
+
+		++(0, -5mm)
+		+(-10mm, 0)
+		node {\mf@total}
+
+		+(-27.5mm, 0)
+		node {\mf@page}
+
+		+(-47.5mm, 0)
+		node {\mf@letter}
+		;
+
+
+		\draw[anchor=mid]
+		([shift={(37mm, 30mm)}] current page.south west)
+
+		+(11.5mm, -2.7mm)
+		node [
+				text width = 21mm,
+				align = left
+			] {\mf@creator}
+
+		+(11.5mm, -7.7mm)
+		node [
+				text width = 21mm,
+				align = left
+			] {\mf@inspector}
+
+		+(11.5mm, -17.7mm)
+		node [
+				text width = 21mm,
+				align = left
+			] {\mf@norminspector}
+
+		+(11.5mm, -22.7mm)
+		node [
+				text width = 21mm,
+				align = left
+			] {\mf@approver}
+		;
+
+		%\upshape
+		\huge
+		\draw
+		([shift={(-5mm, 30mm)}] current page.south east)
+		+(-60mm, 7.5mm)
+		node {\mf@tpga}
+		;
+
+		\large
+		\draw
+		([shift={(-5mm, 5mm)}] current page.south east)
+		+(-25mm, 7.5mm)
+		node [
+				anchor = center,
+				text width = 50mm,
+				align = center
+			]{\mf@departmentandgroup}
+		;
+
+		\large
+		\draw
+		([shift={(-55mm, 5mm)}] current page.south east)
+		+(-35mm, 12.5mm)
+		node [
+				anchor = center,
+				text width = 70mm,
+				align = center
+			]{\mf@topic}
+		;
+
+	\end{tikzpicture}
+}
+\makeatother
+
+
