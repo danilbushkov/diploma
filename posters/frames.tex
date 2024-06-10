@@ -76,7 +76,7 @@
 \define@key{landscapetitleframe}{paperformat}[]{\def\lstf@paperformat{#1}}
 
 
-% Рамка последующих страниц бумажного формата
+% Рамка последующих страниц альбомного формата
 \newcommand{\landscapetitleframe}[1][]{
 \setkeys{landscapetitleframe}{
 	creator,
@@ -110,3 +110,63 @@
 
 \makeatother
 
+
+
+\makeatletter
+
+% Определение команды с ключами и значениями
+\define@key{booksubsequentframe}{page}[]{\def\bksf@page{#1}}
+\define@key{booksubsequentframe}{tpga}[]{\def\bksf@tpga{#1}}
+\define@key{booksubsequentframe}{paperformat}[]{\def\bksf@paperformat{#1}}
+
+
+% Рамка последующих страниц бумажного формата
+\newcommand{\booksubsequentframe}[1][]{
+\setkeys{booksubsequentframe}{
+	page,
+	tpga,
+	paperformat,
+}
+\setkeys{booksubsequentframe}{#1}
+\simpleframe
+\subsequenttable[
+	tpga=\bksf@tpga,
+	page=\bksf@page,
+]
+\topinsсriptionforbook[\bksf@tpga]
+\paperformat{\bksf@paperformat}
+}
+
+
+\makeatother
+
+
+
+
+\makeatletter
+
+% Определение команды с ключами и значениями
+\define@key{landscapesubsequentframe}{page}[]{\def\lssf@page{#1}}
+\define@key{landscapesubsequentframe}{tpga}[]{\def\lssf@tpga{#1}}
+\define@key{landscapesubsequentframe}{paperformat}[]{\def\lssf@paperformat{#1}}
+
+
+% Рамка последующих страниц бумажного формата
+\newcommand{\landscapesubsequentframe}[1][]{
+\setkeys{landscapesubsequentframe}{
+	page,
+	tpga,
+	paperformat,
+}
+\setkeys{landscapesubsequentframe}{#1}
+\simpleframe
+\subsequenttable[
+	tpga=\lssf@tpga,
+	page=\lssf@page,
+]
+\topinsсriptionforlandscape[\lssf@tpga]
+\paperformat{\lssf@paperformat}
+}
+
+
+\makeatother

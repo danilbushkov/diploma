@@ -25,19 +25,24 @@
 \fancypagestyle{mainframe} {
     \fancyhf{}
     \fancyhead[L]{
-        \landscapetitleframe[
-            tpga=\tpga~\doctype,
-            departmentandgroup=\departmentandgroupinframe,
-            topic=\topic,
-            creator=\authorinframe,
-            inspector=\inspectorinframe,
-            norminspector=\norminspectorinframe,
-            approver=\approverinframe,
-            page=\thepage,
-            total=2,
-            paperformat=A1,
-        ]
+      %  \landscapetitleframe[
+      %      tpga=\tpga~\doctype,
+      %      departmentandgroup=\departmentandgroupinframe,
+      %      topic=\topic,
+      %      creator=\authorinframe,
+      %      inspector=\inspectorinframe,
+      %      norminspector=\norminspectorinframe,
+      %      approver=\approverinframe,
+      %      page=\thepage,
+      %      total=2,
+      %      paperformat=A1,
+      %  ]
         
+        \landscapesubsequentframe[
+        tpga=tpga,
+        page=2,
+        paperformat=A1
+        ]
     }
 }
 \setlength{\parindent}{0cm}
