@@ -34,7 +34,7 @@
     \input{./constants.example.tex}
 }
 % Файл с рамками
-\input{./frames.tex}
+\input{../frames.tex}
 % Файл, в котором содержаться пользовательские команды
 \input{./commands.tex}
 % Общие натройки стилей
@@ -62,17 +62,17 @@
 \fancypagestyle{mainframe} {
     \fancyhf{}
     \fancyhead[L]{
-        \mainframe
-        {\tpga}
-        {\departmentandgroupinframe}{
-        \topic
-        }
-        {\authorinframe}
-        {\inspectorinframe}
-        {\norminspectorinframe}
-        {\approverinframe}
-        {\thepage}
-        {\total{page}}
+        \mainframe[
+            tpga=\tpga,
+            departmentandgroup=\departmentandgroupinframe,
+            topic=\topic,
+            creator=\authorinframe,
+            inspector=\inspectorinframe,
+            norminspector=\norminspectorinframe,
+            approver=\approverinframe,
+            page=\thepage,
+            total=\total{page},
+        ]
     }
 
 }
