@@ -12,21 +12,21 @@
 \makeatletter
 
 % Определение команды с ключами и значениями
-\define@key{booktitleframe}{creator}[]{\def\bktf@creator{#1}}
-\define@key{booktitleframe}{inspector}[]{\def\bktf@inspector{#1}}
-\define@key{booktitleframe}{norminspector}[]{\def\bktf@norminspector{#1}}
-\define@key{booktitleframe}{approver}[]{\def\bktf@approver{#1}}
-\define@key{booktitleframe}{page}[]{\def\bktf@page{#1}}
-\define@key{booktitleframe}{total}[]{\def\bktf@total{#1}}
-\define@key{booktitleframe}{departmentandgroup}[]{\def\bktf@departmentandgroup{#1}}
-\define@key{booktitleframe}{tpga}[]{\def\bktf@tpga{#1}}
-\define@key{booktitleframe}{name}[]{\def\bktf@name{#1}}
-\define@key{booktitleframe}{paperformat}[]{\def\bktf@paperformat{#1}}
+\define@key{portraittitleframe}{creator}[]{\def\ptf@creator{#1}}
+\define@key{portraittitleframe}{inspector}[]{\def\ptf@inspector{#1}}
+\define@key{portraittitleframe}{norminspector}[]{\def\ptf@norminspector{#1}}
+\define@key{portraittitleframe}{approver}[]{\def\ptf@approver{#1}}
+\define@key{portraittitleframe}{page}[]{\def\ptf@page{#1}}
+\define@key{portraittitleframe}{total}[]{\def\ptf@total{#1}}
+\define@key{portraittitleframe}{departmentandgroup}[]{\def\ptf@departmentandgroup{#1}}
+\define@key{portraittitleframe}{tpga}[]{\def\ptf@tpga{#1}}
+\define@key{portraittitleframe}{name}[]{\def\ptf@name{#1}}
+\define@key{portraittitleframe}{paperformat}[]{\def\ptf@paperformat{#1}}
 
 
 % Рамка заглавной страницы бумажного формата
-\newcommand{\booktitleframe}[1][]{
-\setkeys{booktitleframe}{
+\newcommand{\portraittitleframe}[1][]{
+\setkeys{portraittitleframe}{
 	creator,
 	inspector,
 	norminspector,
@@ -38,21 +38,21 @@
 	name,
 	paperformat,
 }
-\setkeys{booktitleframe}{#1}
+\setkeys{portraittitleframe}{#1}
 \simpleframe
 \titletable[
-	tpga=\bktf@tpga,
-	departmentandgroup=\bktf@departmentandgroup,
-	name=\bktf@name,
-	creator=\bktf@creator,
-	inspector=\bktf@inspector,
-	norminspector=\bktf@norminspector,
-	approver=\bktf@approver,
-	page=\bktf@page,
-	total=\bktf@total,
+	tpga=\ptf@tpga,
+	departmentandgroup=\ptf@departmentandgroup,
+	name=\ptf@name,
+	creator=\ptf@creator,
+	inspector=\ptf@inspector,
+	norminspector=\ptf@norminspector,
+	approver=\ptf@approver,
+	page=\ptf@page,
+	total=\ptf@total,
 ]
-\topinsсriptionforbook[\bktf@tpga]
-\paperformat{\bktf@paperformat}
+\topinsсriptionforportrait[\ptf@tpga]
+\paperformat{\ptf@paperformat}
 }
 
 
@@ -115,26 +115,26 @@
 \makeatletter
 
 % Определение команды с ключами и значениями
-\define@key{booksubsequentframe}{page}[]{\def\bksf@page{#1}}
-\define@key{booksubsequentframe}{tpga}[]{\def\bksf@tpga{#1}}
-\define@key{booksubsequentframe}{paperformat}[]{\def\bksf@paperformat{#1}}
+\define@key{portraitsubsequentframe}{page}[]{\def\psf@page{#1}}
+\define@key{portraitsubsequentframe}{tpga}[]{\def\psf@tpga{#1}}
+\define@key{portraitsubsequentframe}{paperformat}[]{\def\psf@paperformat{#1}}
 
 
 % Рамка последующих страниц бумажного формата
-\newcommand{\booksubsequentframe}[1][]{
-\setkeys{booksubsequentframe}{
+\newcommand{\portraitsubsequentframe}[1][]{
+\setkeys{portraitsubsequentframe}{
 	page,
 	tpga,
 	paperformat,
 }
-\setkeys{booksubsequentframe}{#1}
+\setkeys{portraitsubsequentframe}{#1}
 \simpleframe
 \subsequenttable[
-	tpga=\bksf@tpga,
-	page=\bksf@page,
+	tpga=\psf@tpga,
+	page=\psf@page,
 ]
-\topinsсriptionforbook[\bksf@tpga]
-\paperformat{\bksf@paperformat}
+\topinsсriptionforportrait[\psf@tpga]
+\paperformat{\psf@paperformat}
 }
 
 
