@@ -1,0 +1,48 @@
+
+
+
+\usepackage{ifthen}
+\makeatletter
+
+% Определение команды с ключами и значениями
+\define@key{titleposter}{page}[]{\def\titleposter@page{#1}}
+\define@key{titleposter}{total}[]{\def\titleposter@total{#1}}
+\define@key{titleposter}{number}[]{\def\titleposter@number{#1}}
+\define@key{titleposter}{name}[]{\def\titleposter@name{#1}}
+
+
+% Рамка заглавной страницы бумажного формата
+\newcommand{\titleposter}[2][]{
+	\setkeys{titleposter}{
+		page,
+		total,
+		number,
+		name,
+	}
+	\setkeys{titleposter}{#1}
+	\newpage
+
+	\newcommand{\tpgacommand}{
+		\ifthenelse
+		{\equal{\titleposter@number}{}}
+		{\tpga~\doctype}
+		{\tpga-\titleposter@number~\doctype}}
+	#2
+	\portraittitleframe[
+		creator=\authorinframe,
+		inspector=\inspectorinframe,
+		norminspector=\norminspectorinframe,
+		approver=\approverinframe,
+		page=\titleposter@page,
+		total=\titleposter@total,
+		departmentandgroup=\departmentandgroupinframe,
+		tpga=\tpgacommand,
+		name=\titleposter@name,
+		paperformat=A1,
+	]
+}
+
+
+\makeatother
+
+
