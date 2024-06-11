@@ -12,7 +12,9 @@
 
 % Подключение рамок
 \input{./frames.tex}
+
 % Подключение команд
+\input{./commands.tex}
 \input{./portrait-commands.tex}
 % Подключение констант
 \IfFileExists{./constants.tex}{
@@ -28,12 +30,12 @@
 % Начало документа
 \begin{document}
 
+\itshape
 \IfFileExists{./content/portrait.tex}{
 	\input{./content/portrait.tex}
 }{
 	\input{./content.example/portrait.tex}
 }
-
 \end{document}
 
 
