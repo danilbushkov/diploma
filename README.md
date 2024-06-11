@@ -63,3 +63,4 @@ git pull origin main
 
 - [note - Пояснительная записка](./note#readme)
 - [statement - Ведомость](./statement#readme)
+- [posters - Плакаты](./posters#readme)
