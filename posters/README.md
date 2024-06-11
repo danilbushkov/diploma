@@ -47,6 +47,7 @@ xelatex -output-directory=output landscape-posters.tex
 
 
 - `constants.example.tex -> constants.tex` - Общие части ведомости, такие как автор, руководитель и т.д.
+- `images.example -> images` - Расположение картинок. 
 - `content.example -> content` - Содержимое плакатов.
 
 В папке `content` содержатся два файла: `landscape.tex` и `portrait.tex`, которые
