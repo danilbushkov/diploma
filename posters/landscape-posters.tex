@@ -2,8 +2,9 @@
 
 \documentclass[10pt]{article}
 
+
+\usepackage[a1paper, landscape, top = 5mm, left = 20mm, right = 5mm, bottom = 5mm]{geometry}
 \usepackage{fontspec}
-\usepackage[a1paper, top = 5mm, left = 20mm, right = 5mm, bottom = 5mm]{geometry}
 \usepackage{graphicx}
 \graphicspath{ {./images/} {./images.example/} }
 \setmainfont{Arial}
@@ -14,14 +15,13 @@
 
 % Подключение команд
 \input{./commands.tex}
-\input{./portrait-commands.tex}
+\input{./landscape-commands.tex}
 % Подключение констант
 \IfFileExists{./constants.tex}{
     \input{./constants.tex}
 }{
     \input{./constants.example.tex}
 }
-
 
 \setlength{\parindent}{0cm}
 
@@ -30,11 +30,12 @@
 \begin{document}
 
 \itshape
-\IfFileExists{./content/portrait.tex}{
-	\input{./content/portrait.tex}
+\IfFileExists{./content/landscape.tex}{
+	\input{./content/landscape.tex}
 }{
-	\input{./content.example/portrait.tex}
+	\input{./content.example/landscape.tex}
 }
 \end{document}
+
 
 

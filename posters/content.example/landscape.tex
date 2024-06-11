@@ -1,2 +1,115 @@
 
 
+
+
+\titleposter[
+	name=Пример плаката 1,
+	page=1,
+	total=1,
+	number=01,
+]{
+	\vspace*{3cm}
+	\begin{center}
+		\includegraphics[width=0.37\textwidth]{example}
+		\hspace{4cm}
+		\includegraphics[width=0.37\textwidth]{example}
+	\end{center}
+}
+
+
+
+\titleposter[
+	name=Пример плаката 2,
+	page=1,
+	total=1,
+	number=02,
+]{
+
+	\vspace*{3cm}
+	\centering
+	\begin{minipage}{.4\textwidth}
+		\centering
+		Какой-то текст\\[2cm]
+		\includegraphics[width=0.9\textwidth]{example}
+	\end{minipage}
+	\hspace{4cm}
+	\begin{minipage}{.4\textwidth}
+		\centering
+		Какой-то текст\\[2cm]
+		\includegraphics[width=0.9\textwidth]{example}
+	\end{minipage}
+}
+
+\titleposter[
+	name=Пример плаката 3,
+	page=1,
+	total=1,
+	number=03,
+]{
+	\begin{tikzpicture}[remember picture, overlay]
+		\draw[anchor=north west]
+		(current page.north west)
+		++(5cm, -4cm)
+
+		node{
+			\begin{minipage}{.3\textwidth}
+				\centering
+				Какой-то текст\\[2cm]
+				\includegraphics[width=0.9\textwidth]{example}
+			\end{minipage}
+		}
+		++(0.5\textwidth, -5cm)
+		node{
+			\begin{minipage}{.3\textwidth}
+				\centering
+				Какой-то текст\\[2cm]
+				\includegraphics[width=0.9\textwidth]{example}
+			\end{minipage}
+		}
+		;
+	\end{tikzpicture}
+}
+
+
+
+
+\titleposter[
+	name=Cхемы алгоритмов,
+	page=1,
+	total=3,
+	number=04,
+]{
+
+	\vspace*{1cm}
+	\begin{center}
+		Какое-то название\\[2cm]
+		\includegraphics[height=0.8\textheight]{example}
+	\end{center}
+}
+
+\subsequentposter[
+	page=2,
+	number=04,
+]{
+
+	\vspace*{1cm}
+	\begin{center}
+		Какое-то название\\[2cm]
+		\includegraphics[height=0.8\textheight]{example}
+	\end{center}
+}
+
+
+
+\subsequentposter[
+	page=3,
+	number=04,
+]{
+
+	\vspace*{1cm}
+	\begin{center}
+		Какое-то название\\[2cm]
+		\includegraphics[height=0.8\textheight]{example}
+	\end{center}
+}
+
