@@ -79,7 +79,7 @@ xelatex -output-directory=output landscape-posters.tex
 	page=1,
 	total=2,
 	number=04,
-    namestyle=\Huge
+	namestyle=\Huge
 ]{
 
 	\vspace*{2cm}
