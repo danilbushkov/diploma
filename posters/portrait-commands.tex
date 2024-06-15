@@ -10,6 +10,7 @@
 \define@key{titleposter}{total}[]{\def\titleposter@total{#1}}
 \define@key{titleposter}{number}[]{\def\titleposter@number{#1}}
 \define@key{titleposter}{name}[]{\def\titleposter@name{#1}}
+\define@key{titleposter}{namestyle}[\LARGE]{\def\titleposter@namestyle{#1}}
 
 \newcommand{\titletpga}{
 	\ifthenelse
@@ -23,6 +24,7 @@
 		total,
 		number,
 		name,
+		namestyle
 	}
 	\setkeys{titleposter}{#1}
 	\newpage
@@ -38,6 +40,7 @@
 		tpga=\titletpga,
 		name=\titleposter@name,
 		paperformat=A1,
+		namestyle=\titleposter@namestyle
 	]\HUGE#2
 }
 

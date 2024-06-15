@@ -11,7 +11,7 @@
 \define@key{titletable}{departmentandgroup}[]{\def\tt@departmentandgroup{#1}}
 \define@key{titletable}{tpga}[]{\def\tt@tpga{#1}}
 \define@key{titletable}{name}[]{\def\tt@name{#1}}
-
+\define@key{titletable}{namestyle}[]{\def\tt@namestyle{#1}}
 
 
 % Таблица рамки заглавной страницы
@@ -26,6 +26,7 @@
 		departmentandgroup,
 		tpga,
 		name,
+		namestyle
 	}
 	\setkeys{titletable}{#1}
 	\itshape
@@ -239,7 +240,7 @@
 			]{\tt@departmentandgroup}
 		;
 
-		\LARGE
+		\tt@namestyle
 		\draw
 		([shift={(-55mm, 20mm)}] current page.south east)
 		+(-35mm, 12.5mm)

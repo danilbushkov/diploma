@@ -22,7 +22,7 @@
 \define@key{portraittitleframe}{tpga}[]{\def\ptf@tpga{#1}}
 \define@key{portraittitleframe}{name}[]{\def\ptf@name{#1}}
 \define@key{portraittitleframe}{paperformat}[]{\def\ptf@paperformat{#1}}
-
+\define@key{portraittitleframe}{namestyle}[]{\def\ptf@namestyle{#1}}
 
 % Рамка заглавной страницы бумажного формата
 \newcommand{\portraittitleframe}[1][]{
@@ -37,6 +37,7 @@
 	tpga,
 	name,
 	paperformat,
+	namestyle,
 }
 \setkeys{portraittitleframe}{#1}
 \simpleframe
@@ -50,6 +51,7 @@
 	approver=\ptf@approver,
 	page=\ptf@page,
 	total=\ptf@total,
+	namestyle=\ptf@namestyle
 ]
 \topinsсriptionforportrait[\ptf@tpga]
 \paperformat{\ptf@paperformat}
@@ -74,7 +76,7 @@
 \define@key{landscapetitleframe}{tpga}[]{\def\lstf@tpga{#1}}
 \define@key{landscapetitleframe}{name}[]{\def\lstf@name{#1}}
 \define@key{landscapetitleframe}{paperformat}[]{\def\lstf@paperformat{#1}}
-
+\define@key{landscapetitleframe}{namestyle}[]{\def\lstf@namestyle{#1}}
 
 % Рамка последующих страниц альбомного формата
 \newcommand{\landscapetitleframe}[1][]{
@@ -89,6 +91,7 @@
 	tpga,
 	name,
 	paperformat,
+	namestyle,
 }
 \setkeys{landscapetitleframe}{#1}
 \simpleframe
@@ -102,6 +105,7 @@
 	approver=\lstf@approver,
 	page=\lstf@page,
 	total=\lstf@total,
+	namestyle=\lstf@namestyle
 ]
 \topinsсriptionforlandscape[\lstf@tpga]
 \paperformat{\lstf@paperformat}

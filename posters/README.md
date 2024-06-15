@@ -61,10 +61,11 @@ xelatex -output-directory=output landscape-posters.tex
 - `\subsequentposter[<Параметры плаката>]{<Содержание>}` - Команда определения плаката для последующих страниц.
 
 Команда `\titleposter` имеет следующие необязательные параметры:
-- `name` - имя плаката.
+- `name` - название плаката.
 - `page` - номер страницы.
 - `total` - общее количество страниц.
 - `number` - номер плаката.
+- `namestyle` - стиль названия плаката, по умолчанию - `\LARGE`.
 
 
 Команда `\subsequentposter` имеет следующие необязательные параметры:
@@ -78,6 +79,7 @@ xelatex -output-directory=output landscape-posters.tex
 	page=1,
 	total=2,
 	number=04,
+    namestyle=\Huge
 ]{
 
 	\vspace*{2cm}
