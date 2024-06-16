@@ -41,4 +41,4 @@ xelatex -output-directory=output statement.tex
 
 - `constants.example.tex -> constants.tex` - Общие части ведомости, такие как автор, руководитель и т.д.
 - `content.example.tex -> content.tex` - Содержимое ведомости. 
-
+- `custom.example.tex -> custom.tex` - Пользовательские стили, команды, переопределение команд и т.д.

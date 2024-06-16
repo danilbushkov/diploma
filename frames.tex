@@ -18,6 +18,7 @@
 \define@key{mainframe}{tpga}[]{\def\mf@tpga{#1}}
 \define@key{mainframe}{topic}[]{\def\mf@topic{#1}}
 \define@key{mainframe}{letter}[]{\def\mf@letter{#1}}
+\define@key{mainframe}{topicstyle}[\large]{\def\mf@topicstyle{#1}}
 
 \newcommand{\mainframe}[1][]{
 	\setkeys{mainframe}{
@@ -30,7 +31,8 @@
 		departmentandgroup,
 		tpga,
 		topic,
-		letter
+		letter,
+		topicstyle
 	}
 	\setkeys{mainframe}{#1}
 	\itshape
@@ -240,7 +242,7 @@
 			]{\mf@departmentandgroup}
 		;
 
-		\large
+		\mf@topicstyle
 		\draw
 		([shift={(-55mm, 5mm)}] current page.south east)
 		+(-35mm, 12.5mm)

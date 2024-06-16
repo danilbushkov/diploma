@@ -1,3 +1,8 @@
 content.tex
 constants.tex
 *.tmp
+
+custom/
+custom.tex
+
+

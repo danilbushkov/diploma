@@ -3,7 +3,6 @@
 \documentclass[a4paper,10pt]{article}
 
 
-\usepackage[english, russian]{babel}
 \usepackage{fontspec}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
@@ -31,6 +30,12 @@
     \input{./constants.example.tex}
 }
 
+\IfFileExists{./custom.tex}{
+    \input{custom.tex}
+}{
+    \input{custom.example.tex}
+}
+
 % Убираем линию у верхнего колонтитула
 \renewcommand{\headrulewidth}{0pt}
 
@@ -55,7 +60,9 @@
             approver=\approverinframe,
             page=\thepage,
             total=\pageref*{LastPage},
-            letter=Э
+            letter=Э,
+            topicstyle={\ifdefined\topicstyleinframe\topicstyleinframe
+                \else\large\fi}
         ]
     }
 }

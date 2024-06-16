@@ -56,6 +56,13 @@
 % Настройка отступов от краёв страницы до текста
 \geometry{top = 15mm, left = 25mm, right = 10mm, bottom = 15mm}
 
+% Подключение файла пользовательских стилей, команд и т.д.
+\IfFileExists{./custom.tex}{
+    \input{./custom.tex}
+}{
+    \input{./custom.example.tex}
+}
+
 % Убираем линию у верхнего колонтитула
 \renewcommand{\headrulewidth}{0pt}
 
@@ -73,6 +80,9 @@
             approver=\approverinframe,
             page=\thepage,
             total=\total{page},
+            topicstyle={\selectlanguage{nohyphenation}
+                \ifdefined\topicstyleinframe\topicstyleinframe
+                \else\large\fi}
         ]
     }
 
@@ -107,12 +117,7 @@
 \regtotcounter{table}
 \regtotcounter{appendix}
 
-% Подключение файла пользовательских стилей, команд и т.д.
-\IfFileExists{custom.tex}{
-    \input{custom.tex}
-}{
-    \input{custom.example.tex}
-}
+
 
 
 % Начало документа
